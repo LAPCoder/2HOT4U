@@ -1,0 +1,38 @@
+{
+	"print": {
+		"prefix": "pri",
+		"body": "print ${1:text/num/var};\r\n",
+		"description": "print",
+		"scope": "source.4u"
+	},
+	"if": {
+		"prefix": "if",
+		"body": "if ${1:condition} do\r\n\t${2:code}\r\n;\r\n",
+		"description": "if",
+		"scope": "source.4u"
+	},
+	"else": {
+		"prefix": "els",
+		"body": "else\r\n\t${1:code}\r\n;\r\n",
+		"description": "else",
+		"scope": "source.4u"
+	},
+	"for": {
+		"prefix": ")x",
+		"body": ")x\r\n\t${1:code}\r\n;\r\n",
+		"description": "for",
+		"scope": "source.4u"
+	},
+	"while": {
+		"prefix": ")?",
+		"body": ")?\r\n\t${1:code}\r\n;\r\n",
+		"description": "while",
+		"scope": "source.4u"
+	},
+	"del": {
+		"prefix": "del",
+		"body": "del ${1:var};\r\n",
+		"description": "del",
+		"scope": "source.4u"
+	}
+}

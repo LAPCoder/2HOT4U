@@ -1,0 +1,268 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "4U",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#builtins"
+		},
+		{
+			"include": "#symbols"
+		},
+		{
+			"include": "#paren-expression"
+		},
+		{
+			"include": "#variables"
+		}
+	],
+	"repository": {
+		"variables": {
+			"patterns": [
+				{
+					"name": "variable",
+					"match": "\\b[tedb]([*]+)\\b"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.operator.4u",
+					"match": "\\b(?:\\+\\+|\\-\\-|\\+\\=|\\-\\=|\\*\\=|/\\=|\\%\\=|\\&\\=|\\|\\=|\\=\\=|equal|equivalent|\\!\\=|<>|different|<|>|<=|>\\=|in|and|or|not|\\!)\\b"
+				},
+				{
+					"name": "keyword.control.new.4u",
+					"match": "\\b(?:del|print|faire|saisir)\\b"
+				},
+				{
+					"name": "keyword.other.4u",
+					"match": "\\b(?:true|false|null|undefined)\\b"
+				},
+				{
+					"name": "keyword.other.unit.4u",
+					"match": "\\b(?:Infinity|NaN)\\b"
+				},
+				{
+					"name": "keyword.control.4u",
+					"match": "\\b(?:if|do|else|(\\)x)|\\?)\\b"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.4u",
+					"match": "\\b([0-9]+(x[0-9]+)?(?=\\s)|0x([0-9a-fA-F]+(x[0-9a-fA-F]+)?(?=\\s)))\\b"
+				},
+				{
+					"name": "constant.numeric.4u",
+					"match": "\\b(?:0[xX][0-9a-fA-F]+|0[bB][01]+|0[oO][0-7]+|(?:\\d+\\.?\\d*|\\.\\d+)(?:[eE][+-]?\\d+)?)(?:[LlFfDd]|UL|ul)?\\b"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"begin": "\"\"\"",
+					"beginCaptures": {
+						"0": {
+							"name": "string.quoted.triple.4u"
+						}
+					},
+					"end": "\"\"\"",
+					"endCaptures": {
+						"0": {
+							"name": "string.quoted.triple.4u"
+						}
+					},
+					"name": "string.quoted.triple.4u",
+					"patterns": [
+						{
+							"include": "#escapes"
+						}
+					]
+				},
+				{
+					"begin": "'''",
+					"beginCaptures": {
+						"0": {
+							"name": "string.quoted.triple.4u"
+						}
+					},
+					"end": "'''",
+					"endCaptures": {
+						"0": {
+							"name": "string.quoted.triple.4u"
+						}
+					},
+					"name": "string.quoted.triple.4u",
+					"patterns": [
+						{
+							"include": "#escapes"
+						}
+					]
+				},
+				{
+					"begin": "\"",
+					"beginCaptures": {
+						"0": {
+							"name": "string.quoted.double.4u"
+						}
+					},
+					"end": "\"|((?<!\\\\)\\n)",
+					"endCaptures": {
+						"0": {
+							"name": "string.quoted.double.4u"
+						}
+					},
+					"name": "string.quoted.double.4u",
+					"patterns": [
+						{
+							"begin": "(?:\\G|^)(?=(?:[^\\\\\"]|\\\\.)+$)",
+							"end": "$",
+							"name": "invalid.illegal.4u",
+							"patterns": [
+								{
+									"include": "#escapes"
+								}
+							]
+						},
+						{
+							"include": "#escapes"
+						}
+					]
+				},
+				{
+					"begin": "'",
+					"beginCaptures": {
+						"0": {
+							"name": "string.quoted.single.4u"
+						}
+					},
+					"end": "'|((?<!\\\\)\\n)",
+					"endCaptures": {
+						"0": {
+							"name": "string.quoted.single.4u"
+						}
+					},
+					"name": "string.quoted.single.4u",
+					"patterns": [
+						{
+							"begin": "(?:\\G|^)(?=(?:[^\\\\']|\\\\.)+$)",
+							"end": "$",
+							"name": "invalid.illegal.4u",
+							"patterns": [
+								{
+									"include": "#escapes"
+								}
+							]
+						},
+						{
+							"include": "#escapes"
+						}
+					]
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.4u",
+					"begin": "</>",
+					"end": "$",
+					"patterns": [
+						{
+							"include": "#comments"
+						}
+					]
+				},
+				{
+					"name": "comment.block.4u",
+					"begin": "</",
+					"endCaptures": {
+						"0": {
+							"name": "comment.block.4u"
+						}
+					},
+					"end": "/>",
+					"patterns": [
+						{
+							"include": "#comments"
+						}
+					]
+				},
+				{
+					"name": "comment.block.documentation.4u",
+					"begin": "<\\!\\-\\-",
+					"endCaptures": {
+						"0": {
+							"name": "comment.block.documentation.4u"
+						}
+					},
+					"end": "\\-\\->",
+					"patterns": [
+						{
+							"include": "#comments"
+						}
+					]
+				}
+			]
+		},
+		"paren-expression": {
+			"begin": "\\(",
+			"end": "\\)",
+			"beginCaptures": {
+				"0": { "name": "punctuation.paren.open" }
+			},
+			"endCaptures": {
+				"0": { "name": "punctuation.paren.close" }
+			},
+			"name": "expression.group",
+			"patterns": [{ "include": "#expression" }]
+		},
+		"escapes": {
+			"patterns": [
+				{
+					"name": "constant.language.4u",
+					"match": "\\\\\\n"
+				},
+				{
+					"name": "constant.character.escape.4u",
+					"match": "\\\\(?:[abfnrtv'\"\\\\]|[0-7]{1,3}|x[0-9a-fA-F]{1,2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})"
+				},
+				{
+					"name": "invalid.illegal.4u",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.4u"
+}
