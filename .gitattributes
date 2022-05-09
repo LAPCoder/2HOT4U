@@ -1,2 +1,6 @@
 # Set default behavior to automatically normalize line endings.
-* text=auto
+*    text=auto
+
+*.4u linguist-language=4U
+*    linguist-detectable=true
+*    linguist-documentation=false
