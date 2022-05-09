@@ -1,0 +1,57 @@
+{
+	"name": "2hot4u",
+	"displayName": "2HOT4U | Official 4U full support 4 VSCode",
+	"description": "Official VSCode extension to highlight 4U lang.",
+	"version": "0.0.0",
+	"publisher": "LAPCoder",
+	"icon": "assets/4Ulogo.png",
+	"license": "MIT LICENSE. SEE IN LICENSE.txt",
+	"engines": {
+		"vscode": "^1.66.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"keywords": [
+		"2hot4u",
+		"4u",
+		"language",
+		"snippets"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/LAPCoder/2HOT4U"
+	},
+	"contributes": {
+		"languages": [
+			{
+				"id": "4u",
+				"aliases": [
+					"4U",
+					"4u"
+				],
+				"extensions": [
+					".4u"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "4u",
+				"path": "./snippets/snippets.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "4u",
+				"scopeName": "source.4u",
+				"path": "./syntaxes/4u.tmLanguage.json"
+			}
+		]
+	},
+	"__metadata": {
+		"publisherDisplayName": "LAPCoder",
+		"isPreReleaseVersion": true
+	}
+}
