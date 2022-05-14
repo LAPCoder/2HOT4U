@@ -49,9 +49,5 @@
 				"path": "./syntaxes/4u.tmLanguage.json"
 			}
 		]
-	},
-	"__metadata": {
-		"publisherDisplayName": "LAPCoder",
-		"isPreReleaseVersion": true
 	}
 }
