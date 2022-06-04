@@ -1,5 +1,10 @@
 # 2HOT4U | Official 4U full support 4 VSCode
 
+![Visual Studio Marketplace Rating (Stars)](https://img.shields.io/visual-studio-marketplace/stars/lapcoder.2hot4u)
+![Visual Studio Marketplace Last Updated](https://img.shields.io/visual-studio-marketplace/last-updated/lapcoder.2hot4u)
+![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/lapcoder.2hot4u)
+![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/lapcoder.2hot4u)
+
 Language extension to highlight and add snippets for 4U files.
 
 4U is a language in development by [LAPCoder](https://github.com/LAPCoder).
